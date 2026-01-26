@@ -22,8 +22,11 @@ const isActive = (href: string) => {
 <nav class="nav">
     <div class="nav-container">
         <a href="/" class={`nav-logo ${currentPath === "/" ? "active" : ""}`}>
-            <span class="logo-text">Unfourtel</span>
-            <span class="logo-subtitle">Distribuidor Vodafone</span>
+            <img src="/Unfourtel-Logo.png" alt="Unfourtel" class="logo-img" />
+            <div class="logo-wrapper">
+                <span class="logo-text">Unfourtel</span>
+                <span class="logo-subtitle">Distribuidor Vodafone</span>
+            </div>
         </a>
 
         <button
@@ -61,10 +64,10 @@ const isActive = (href: string) => {
         left: 0;
         right: 0;
         z-index: 1000;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(230, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(230, 0, 0, 0.15);
         padding: 0.75rem 0;
     }
 
@@ -79,8 +82,19 @@ const isActive = (href: string) => {
 
     .nav-logo {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         text-decoration: none;
+        gap: 0.75rem;
+    }
+
+    .logo-img {
+        height: 42px;
+        width: auto;
+    }
+
+    .logo-wrapper {
+        display: flex;
+        flex-direction: column;
         gap: 0.1rem;
     }
 
@@ -101,7 +115,7 @@ const isActive = (href: string) => {
 
     .logo-subtitle {
         font-size: 0.65rem;
-        color: rgba(255, 255, 255, 0.6);
+        color: var(--text-secondary, #5a5a7a);
         text-transform: uppercase;
         letter-spacing: 2px;
         font-weight: 500;
@@ -122,7 +136,7 @@ const isActive = (href: string) => {
     .nav-link {
         display: block;
         padding: 0.75rem 1.25rem;
-        color: rgba(255, 255, 255, 0.85);
+        color: var(--text-secondary, #5a5a7a);
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 500;
@@ -147,8 +161,8 @@ const isActive = (href: string) => {
     }
 
     .nav-link:hover {
-        color: #ffffff;
-        background: rgba(230, 0, 0, 0.1);
+        color: #e60000;
+        background: rgba(230, 0, 0, 0.08);
     }
 
     .nav-link:hover::before {
@@ -157,12 +171,8 @@ const isActive = (href: string) => {
 
     /* Active state - current page */
     .nav-link.active {
-        color: #ffffff;
-        background: rgba(230, 0, 0, 0.15);
-    }
-
-    .nav-link.active::before {
-        width: 60%;
+        color: #e60000;
+        background: rgba(230, 0, 0, 0.1);
     }
 
     .nav-toggle {
@@ -178,7 +188,7 @@ const isActive = (href: string) => {
         display: block;
         width: 24px;
         height: 2px;
-        background: #fff;
+        background: var(--text-primary, #1a1a2e);
         position: relative;
         transition: all 0.3s ease;
     }
@@ -189,7 +199,7 @@ const isActive = (href: string) => {
         position: absolute;
         width: 24px;
         height: 2px;
-        background: #fff;
+        background: var(--text-primary, #1a1a2e);
         left: 0;
         transition: all 0.3s ease;
     }
@@ -215,13 +225,13 @@ const isActive = (href: string) => {
             width: 80%;
             max-width: 320px;
             height: 100vh;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1rem;
             transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
         }
 
         .nav-menu.active {
