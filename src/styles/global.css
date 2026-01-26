@@ -2055,9 +2055,7 @@
 .device-image {
     width: 100%;
     aspect-ratio: 1;
-    background: linear-gradient(135deg,
-            rgba(0, 0, 0, 0.05) 0%,
-            rgba(0, 0, 0, 0.01) 100%);
+    background: transparent;
     border-radius: 12px;
     margin-bottom: 1rem;
     display: flex;
@@ -2068,7 +2066,15 @@
 .device-image svg {
     width: 48px;
     height: 48px;
-    color: var(--text-muted, #8888a8);
+    color: rgba(5, 150, 105, 0.4);
+}
+
+.device-pricing .price-amount {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .device-brand {
@@ -2088,7 +2094,7 @@
 .device-price {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #e60000;
+    color: #059669;
 }
 
 .device-price-period {
@@ -2693,7 +2699,7 @@
     background: rgba(5, 150, 105, 0.1);
     border: 1px solid rgba(5, 150, 105, 0.2);
     border-radius: 12px;
-    color: #fff;
+    color: #059669;
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
@@ -2794,7 +2800,7 @@
     background: rgba(5, 150, 105, 0.1);
     border: 1px solid rgba(5, 150, 105, 0.2);
     border-radius: 10px;
-    color: #fff;
+    color: #059669;
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
