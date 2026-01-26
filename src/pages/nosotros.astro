@@ -1,0 +1,804 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const stats = [
+    { number: "15+", label: "Años de experiencia" },
+    { number: "5000+", label: "Clientes satisfechos" },
+    { number: "50+", label: "Profesionales" },
+    { number: "24/7", label: "Soporte técnico" },
+];
+
+const values = [
+    {
+        icon: "trust",
+        title: "Confianza",
+        description:
+            "Construimos relaciones duraderas basadas en la transparencia y el compromiso con nuestros clientes.",
+    },
+    {
+        icon: "innovation",
+        title: "Innovación",
+        description:
+            "Estamos a la vanguardia de las últimas tecnologías para ofrecer siempre las mejores soluciones.",
+    },
+    {
+        icon: "excellence",
+        title: "Excelencia",
+        description:
+            "Nos esforzamos por superar las expectativas en cada proyecto y en cada interacción.",
+    },
+    {
+        icon: "proximity",
+        title: "Cercanía",
+        description:
+            "Tratamos a cada cliente de forma personalizada, entendiendo sus necesidades únicas.",
+    },
+];
+
+const timeline = [
+    {
+        year: "2009",
+        title: "Nuestros inicios",
+        description:
+            "Fundamos Unfourtel con la visión de acercar las telecomunicaciones de calidad a empresas y particulares.",
+    },
+    {
+        year: "2012",
+        title: "Expansión regional",
+        description:
+            "Ampliamos nuestra presencia a nivel regional, abriendo nuevas oficinas y aumentando nuestro equipo.",
+    },
+    {
+        year: "2016",
+        title: "Partner Gold Vodafone",
+        description:
+            "Alcanzamos el estatus de Partner Gold, reconociendo nuestra excelencia en ventas y servicio al cliente.",
+    },
+    {
+        year: "2020",
+        title: "Transformación digital",
+        description:
+            "Lideramos la transición digital de cientos de empresas durante un año de cambios sin precedentes.",
+    },
+    {
+        year: "2024",
+        title: "Líderes del sector",
+        description:
+            "Consolidamos nuestra posición como uno de los principales distribuidores de Vodafone en España.",
+    },
+];
+---
+
+<Layout
+    title="Nosotros | Unfourtel - Distribuidor Vodafone"
+    description="Conoce la historia de Unfourtel, tu distribuidor de confianza de Vodafone. Más de 15 años conectando empresas y personas con la mejor tecnología."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Sobre Nosotros</span>
+                <h1 class="hero-title">
+                    Más de 15 años
+                    <span class="highlight">conectando</span>
+                    personas
+                </h1>
+                <p class="hero-description">
+                    Somos más que un distribuidor. Somos tu socio tecnológico,
+                    comprometidos con tu éxito y el de tu empresa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-label">Quiénes Somos</span>
+                    <h2 class="section-title">
+                        Tu distribuidor de confianza de Vodafone
+                    </h2>
+                    <p class="about-text">
+                        <strong>Unfourtel</strong> nació con una misión clara: democratizar
+                        el acceso a las telecomunicaciones de alta calidad. Como distribuidor
+                        autorizado de Vodafone, combinamos la potencia de una de las
+                        mayores redes de telecomunicaciones del mundo con un servicio
+                        cercano y personalizado.
+                    </p>
+                    <p class="about-text">
+                        Trabajamos con empresas de todos los tamaños, desde
+                        autónomos y pymes hasta grandes corporaciones,
+                        ofreciendo soluciones adaptadas a cada necesidad.
+                        Nuestro equipo de profesionales está formado en las
+                        últimas tecnologías y comprometido con ofrecer la mejor
+                        experiencia al cliente.
+                    </p>
+                    <p class="about-text">
+                        Creemos que la conectividad es un derecho fundamental en
+                        el mundo actual. Por eso, nos esforzamos cada día por
+                        ofrecer las mejores tarifas, la tecnología más avanzada
+                        y un soporte técnico disponible cuando más lo necesitas.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <div class="image-decoration"></div>
+                        <div class="image-content">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                                ></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span>Equipo Unfourtel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                {
+                    stats.map((stat) => (
+                        <div class="stat-card">
+                            <span class="stat-number">{stat.number}</span>
+                            <span class="stat-label">{stat.label}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nuestros Valores</span>
+                <h2 class="section-title">Lo que nos define</h2>
+                <p class="section-description">
+                    Estos son los pilares sobre los que construimos cada
+                    relación con nuestros clientes.
+                </p>
+            </div>
+            <div class="values-grid">
+                {
+                    values.map((value) => (
+                        <div class="value-card">
+                            <div class="value-icon">
+                                {value.icon === "trust" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        <path d="M9 12l2 2 4-4" />
+                                    </svg>
+                                )}
+                                {value.icon === "innovation" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <circle cx="12" cy="12" r="3" />
+                                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                                    </svg>
+                                )}
+                                {value.icon === "excellence" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg>
+                                )}
+                                {value.icon === "proximity" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                    </svg>
+                                )}
+                            </div>
+                            <h3 class="value-title">{value.title}</h3>
+                            <p class="value-description">{value.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nuestra Historia</span>
+                <h2 class="section-title">Un camino de crecimiento</h2>
+                <p class="section-description">
+                    Desde nuestros humildes inicios hasta convertirnos en
+                    referentes del sector.
+                </p>
+            </div>
+            <div class="timeline">
+                {
+                    timeline.map((item, index) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <span class="timeline-year">{item.year}</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">{item.title}</h3>
+                                <p class="timeline-description">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">¿Listo para conectar con nosotros?</h2>
+                <p class="cta-description">
+                    Descubre cómo podemos ayudarte a llevar tu negocio al
+                    siguiente nivel.
+                </p>
+                <a href="/contacto" class="btn btn-primary">
+                    Contáctanos
+                    <svg
+                        class="btn-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        padding: 6rem 0 4rem;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(230, 0, 0, 0.12) 0%,
+            transparent 60%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: rgba(230, 0, 0, 0.1);
+        border: 1px solid rgba(230, 0, 0, 0.3);
+        border-radius: 50px;
+        color: #ff4d4d;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1.25rem;
+        letter-spacing: -0.5px;
+    }
+
+    .highlight {
+        background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    /* Section Common Styles */
+    .section-label {
+        display: inline-block;
+        color: #e60000;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    .section-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 5rem 0;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .about-content {
+        order: 1;
+    }
+
+    .about-text {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-text strong {
+        color: #ffffff;
+    }
+
+    .about-image {
+        order: 2;
+    }
+
+    .image-placeholder {
+        position: relative;
+        aspect-ratio: 4/3;
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.1) 0%,
+            rgba(230, 0, 0, 0.05) 100%
+        );
+        border: 1px solid rgba(230, 0, 0, 0.2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .image-decoration {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(
+                circle at 30% 30%,
+                rgba(230, 0, 0, 0.15) 0%,
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 70% 70%,
+                rgba(230, 0, 0, 0.1) 0%,
+                transparent 50%
+            );
+    }
+
+    .image-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .image-content svg {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+        color: rgba(230, 0, 0, 0.5);
+    }
+
+    .image-content span {
+        display: block;
+        font-size: 0.9rem;
+    }
+
+    /* Stats Section */
+    .stats-section {
+        padding: 4rem 0;
+        background: linear-gradient(
+            180deg,
+            rgba(230, 0, 0, 0.05) 0%,
+            transparent 100%
+        );
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+        background: rgba(230, 0, 0, 0.05);
+        border-color: rgba(230, 0, 0, 0.2);
+        transform: translateY(-4px);
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.95rem;
+    }
+
+    /* Values Section */
+    .values-section {
+        padding: 5rem 0;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .value-card {
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(230, 0, 0, 0.2);
+        transform: translateY(-4px);
+    }
+
+    .value-icon {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 1.25rem;
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.15) 0%,
+            rgba(230, 0, 0, 0.05) 100%
+        );
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .value-icon svg {
+        width: 28px;
+        height: 28px;
+        color: #e60000;
+    }
+
+    .value-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+
+    .value-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Timeline Section */
+    .timeline-section {
+        padding: 5rem 0;
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(230, 0, 0, 0.03) 50%,
+            transparent 100%
+        );
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 100px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #e60000, rgba(230, 0, 0, 0.2));
+    }
+
+    .timeline-item {
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-marker {
+        flex-shrink: 0;
+        width: 100px;
+        text-align: right;
+        position: relative;
+    }
+
+    .timeline-marker::after {
+        content: "";
+        position: absolute;
+        right: -1.5rem;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 14px;
+        height: 14px;
+        background: #e60000;
+        border-radius: 50%;
+        border: 3px solid #0a0a0a;
+        box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.3);
+    }
+
+    .timeline-year {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #e60000;
+    }
+
+    .timeline-content {
+        flex: 1;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(230, 0, 0, 0.2);
+    }
+
+    .timeline-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 5rem 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        padding: 4rem;
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.1) 0%,
+            rgba(230, 0, 0, 0.02) 100%
+        );
+        border: 1px solid rgba(230, 0, 0, 0.2);
+        border-radius: 24px;
+    }
+
+    .cta-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+    }
+
+    .cta-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(230, 0, 0, 0.4);
+    }
+
+    .btn-icon {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover .btn-icon {
+        transform: translateX(4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-image {
+            order: 1;
+        }
+
+        .about-content {
+            order: 2;
+        }
+
+        .stats-grid,
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 4rem 0 3rem;
+        }
+
+        .timeline::before {
+            left: 20px;
+        }
+
+        .timeline-item {
+            flex-direction: column;
+            gap: 1rem;
+            padding-left: 50px;
+        }
+
+        .timeline-marker {
+            width: auto;
+            text-align: left;
+        }
+
+        .timeline-marker::after {
+            left: -30px;
+            right: auto;
+        }
+
+        .cta-content {
+            padding: 2.5rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .stats-grid,
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .container {
+            padding: 0 1.5rem;
+        }
+    }
+</style>

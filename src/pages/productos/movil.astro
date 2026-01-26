@@ -1,0 +1,592 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Mobile plans data
+const plans = [
+    {
+        name: "Tarifa Mini",
+        data: "10GB",
+        price: "9,99",
+        features: [
+            "10GB de datos",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 4G",
+        ],
+        popular: false,
+    },
+    {
+        name: "Tarifa Básica",
+        data: "25GB",
+        price: "14,99",
+        features: [
+            "25GB de datos",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 4G/5G",
+        ],
+        popular: false,
+    },
+    {
+        name: "Tarifa Plus",
+        data: "50GB",
+        price: "19,99",
+        features: [
+            "50GB de datos",
+            "Llamadas ilimitadas",
+            "Roaming UE 15GB",
+            "Cobertura 5G",
+        ],
+        popular: true,
+    },
+    {
+        name: "Tarifa Infinita",
+        data: "Ilimitados",
+        price: "29,99",
+        features: [
+            "Datos ilimitados",
+            "Llamadas ilimitadas",
+            "Roaming UE 30GB",
+            "5G Ultra",
+        ],
+        popular: false,
+    },
+    {
+        name: "Tarifa Familia",
+        data: "100GB",
+        price: "39,99",
+        features: [
+            "100GB compartidos",
+            "Hasta 4 líneas",
+            "Llamadas ilimitadas",
+            "5G para todos",
+        ],
+        popular: false,
+    },
+    {
+        name: "Tarifa Joven",
+        data: "40GB",
+        price: "15,99",
+        features: [
+            "40GB de datos",
+            "Redes sociales ilimitadas",
+            "Menores de 30 años",
+            "5G incluido",
+        ],
+        popular: false,
+    },
+];
+---
+
+<Layout
+    title="Tarifas Móvil | Unfourtel - Distribuidor Vodafone"
+    description="Descubre nuestras tarifas móvil Vodafone con datos, llamadas ilimitadas y la mejor cobertura 5G."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/productos">Productos</a>
+                <span class="separator">/</span>
+                <span class="current">Tarifas Móvil</span>
+            </nav>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"
+                        ></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Tarifas Móvil</h1>
+                <p class="hero-description">
+                    Planes adaptados a cada necesidad con la mejor cobertura de
+                    red y tecnología 5G.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Grid -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="plans-grid">
+                {
+                    plans.map((plan) => (
+                        <div
+                            class={`plan-card ${plan.popular ? "popular" : ""}`}
+                        >
+                            {plan.popular && (
+                                <span class="plan-badge">Más Popular</span>
+                            )}
+                            <div class="plan-header">
+                                <h3 class="plan-name">{plan.name}</h3>
+                                <div class="plan-data">{plan.data}</div>
+                            </div>
+                            <div class="plan-pricing">
+                                <span class="plan-price">{plan.price}</span>
+                                <span class="plan-period">€/mes</span>
+                            </div>
+                            <ul class="plan-features">
+                                {plan.features.map((feature) => (
+                                    <li>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a
+                                href="/contacto"
+                                class={`plan-btn ${plan.popular ? "primary" : ""}`}
+                            >
+                                Contratar ahora
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h4>Sin permanencia</h4>
+                    <p>Cambia o cancela cuando quieras sin penalizaciones.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h4>Mejor cobertura</h4>
+                    <p>La red móvil más premiada de España con 5G real.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h4>Activación inmediata</h4>
+                    <p>Tu línea activa en menos de 24 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Tienes dudas sobre qué tarifa elegir?</h2>
+                <p>
+                    Nuestros asesores te ayudarán a encontrar el plan perfecto.
+                </p>
+                <a href="/contacto" class="btn btn-primary">Contactar</a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .breadcrumb a:hover {
+        color: #e60000;
+    }
+
+    .breadcrumb .separator {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .breadcrumb .current {
+        color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        padding: 4rem 0;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(230, 0, 0, 0.12) 0%,
+            transparent 60%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.2) 0%,
+            rgba(230, 0, 0, 0.05) 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-icon svg {
+        width: 36px;
+        height: 36px;
+        color: #e60000;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Plans Section */
+    .plans-section {
+        padding: 3rem 0 5rem;
+    }
+
+    .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .plan-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plan-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-4px);
+    }
+
+    .plan-card.popular {
+        border-color: rgba(230, 0, 0, 0.3);
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.08) 0%,
+            rgba(230, 0, 0, 0.02) 100%
+        );
+    }
+
+    .plan-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.35rem 1rem;
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    .plan-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .plan-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .plan-data {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0.35rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50px;
+        display: inline-block;
+    }
+
+    .plan-pricing {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .plan-price {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .plan-period {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1rem;
+    }
+
+    .plan-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+        flex: 1;
+    }
+
+    .plan-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .plan-features li:last-child {
+        border-bottom: none;
+    }
+
+    .plan-features svg {
+        width: 18px;
+        height: 18px;
+        color: #22c55e;
+        flex-shrink: 0;
+    }
+
+    .plan-btn {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .plan-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .plan-btn.primary {
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        border: none;
+        box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+    }
+
+    .plan-btn.primary:hover {
+        box-shadow: 0 8px 30px rgba(230, 0, 0, 0.4);
+    }
+
+    /* Info Section */
+    .info-section {
+        padding: 3rem 0;
+        background: linear-gradient(
+            180deg,
+            rgba(230, 0, 0, 0.03) 0%,
+            transparent 100%
+        );
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .info-card {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .info-icon {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 1rem;
+        background: rgba(230, 0, 0, 0.1);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-icon svg {
+        width: 24px;
+        height: 24px;
+        color: #e60000;
+    }
+
+    .info-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-card p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+        padding: 4rem 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-content p {
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(230, 0, 0, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .plans-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .plans-grid,
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plan-card.popular {
+            order: -1;
+        }
+    }
+</style>

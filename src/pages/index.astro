@@ -1,0 +1,894 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Featured clients data
+const clients = [
+	{ name: "TechSolutions", industry: "Tecnología" },
+	{ name: "GastroGroup", industry: "Hostelería" },
+	{ name: "ConstructPro", industry: "Construcción" },
+	{ name: "MedicalPlus", industry: "Sanidad" },
+	{ name: "LogisTrans", industry: "Logística" },
+	{ name: "EduCenter", industry: "Educación" },
+];
+
+// Google Reviews data - Real reviews from Google
+const reviews = [
+	{
+		name: "RaFa Moreno",
+		badge: "Local Guide",
+		rating: 5,
+		text: "Todo perfecto con ellos, al menos con quien lo hicimos. Todo perfecto y se ve que hay un buen equipo.",
+		date: "Hace 4 meses",
+	},
+	{
+		name: "oficina novolux",
+		badge: "",
+		rating: 5,
+		text: "No podemos estar mas contentos, nos han ayudado a gestionar todo el proceso de portabilidad y si hemos tenido cualquier problema nos lo han solucionado sin tener que perder toda la mañana o la semana incluso hablando con Vodafone.",
+		date: "Hace 3 años",
+	},
+	{
+		name: "JAVICECI",
+		badge: "Local Guide",
+		rating: 5,
+		text: "ENCANTADO de poder contar con ellos! Son LOS MEJORES. No se a que viene alguna reseña negativa que he leído, creo de verdad que las escribe su competencia.",
+		date: "Hace 3 años",
+	},
+	{
+		name: "Juan José Cuevas Cano",
+		badge: "",
+		rating: 5,
+		text: "Grandes profesionales y correctos en el trato. Siempre que he querido contar con ellos me han dado respuesta. Además los he referenciado en alguna ocasión y a todo el que se lo he recomendado, está contento con su gestión y sobre todo con su servicio posventa. 100% recomendable.",
+		date: "Hace 3 años",
+	},
+	{
+		name: "Javier",
+		badge: "Local Guide",
+		rating: 5,
+		text: "Excelente, un trato genial desde el primer momento, dedicaron todo el tiempo que necesité para explicarme las opciones disponibles y cuál se ajustaba mejor a mi consumo, me sentí muy cómodo y tranquilo en todo momento.",
+		date: "Hace 3 años",
+	},
+];
+---
+
+<Layout title="Unfourtel | Distribuidor Vodafone">
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-background">
+			<div class="hero-gradient"></div>
+			<div class="hero-grid"></div>
+		</div>
+
+		<div class="hero-content">
+			<span class="hero-badge">Distribuidor Autorizado Vodafone</span>
+			<h1 class="hero-title">
+				Conectamos tu
+				<span class="highlight">negocio</span>
+				con el futuro
+			</h1>
+			<p class="hero-description">
+				Soluciones de telecomunicaciones a medida para empresas y
+				particulares. Descubre la mejor tecnología de Vodafone con el
+				servicio personalizado que mereces.
+			</p>
+			<div class="hero-actions">
+				<a href="/productos" class="btn btn-primary">
+					Ver Productos
+					<svg
+						class="btn-icon"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M5 12h14M12 5l7 7-7 7"></path>
+					</svg>
+				</a>
+				<a href="/contacto" class="btn btn-secondary">Contáctanos</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Clients Section -->
+	<section class="clients-section">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-label">Confían en Nosotros</span>
+				<h2 class="section-title">Clientes que nos avalan</h2>
+				<p class="section-description">
+					Empresas de todos los sectores que han elegido Unfourtel
+					como su partner tecnológico.
+				</p>
+			</div>
+
+			<div class="clients-grid">
+				{
+					clients.map((client) => (
+						<div class="client-card">
+							<div class="client-logo">
+								<span class="client-initial">
+									{client.name.charAt(0)}
+								</span>
+							</div>
+							<div class="client-info">
+								<span class="client-name">{client.name}</span>
+								<span class="client-industry">
+									{client.industry}
+								</span>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Reviews Section -->
+	<section class="reviews-section">
+		<div class="container">
+			<div class="section-header">
+				<div class="google-badge">
+					<svg class="google-icon" viewBox="0 0 24 24">
+						<path
+							fill="#4285F4"
+							d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+						></path>
+						<path
+							fill="#34A853"
+							d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+						></path>
+						<path
+							fill="#FBBC05"
+							d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+						></path>
+						<path
+							fill="#EA4335"
+							d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+						></path>
+					</svg>
+					<span>Reseñas de Google</span>
+				</div>
+				<h2 class="section-title">Lo que dicen nuestros clientes</h2>
+				<div class="rating-summary">
+					<div class="stars">
+						{
+							[1, 2, 3, 4, 5].map(() => (
+								<svg
+									class="star"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+								</svg>
+							))
+						}
+					</div>
+					<span class="rating-text"
+						>5.0 basado en reseñas de Google</span
+					>
+				</div>
+			</div>
+
+			<div class="reviews-carousel-wrapper">
+				<button
+					class="carousel-btn carousel-btn-prev"
+					aria-label="Anterior"
+				>
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M15 18l-6-6 6-6"></path>
+					</svg>
+				</button>
+
+				<div class="reviews-carousel">
+					<div class="reviews-track">
+						{
+							reviews.map((review) => (
+								<div class="review-card">
+									<div class="review-header">
+										<div class="reviewer-avatar">
+											{review.name.charAt(0)}
+										</div>
+										<div class="reviewer-info">
+											<span class="reviewer-name">
+												{review.name}
+											</span>
+											{review.badge && (
+												<span class="reviewer-badge">
+													{review.badge}
+												</span>
+											)}
+										</div>
+									</div>
+									<div class="review-rating">
+										{Array.from({
+											length: review.rating,
+										}).map(() => (
+											<svg
+												class="star-small"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+											>
+												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+											</svg>
+										))}
+									</div>
+									<p class="review-text">"{review.text}"</p>
+									<span class="review-date">
+										{review.date}
+									</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
+
+				<button
+					class="carousel-btn carousel-btn-next"
+					aria-label="Siguiente"
+				>
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M9 18l6-6-6-6"></path>
+					</svg>
+				</button>
+			</div>
+
+			<div class="reviews-cta">
+				<a
+					href="https://share.google/VKtrhWdVcykgpXa2d"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn btn-outline"
+				>
+					Ver todas las reseñas en Google
+					<svg
+						class="btn-icon"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+						></path>
+						<polyline points="15 3 21 3 21 9"></polyline>
+						<line x1="10" y1="14" x2="21" y2="3"></line>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="cta-section">
+		<div class="container">
+			<div class="cta-content">
+				<h2 class="cta-title">
+					¿Listo para mejorar tus telecomunicaciones?
+				</h2>
+				<p class="cta-description">
+					Contáctanos hoy y descubre cómo podemos ayudarte a optimizar
+					tu conectividad empresarial.
+				</p>
+				<a href="/contacto" class="btn btn-primary">
+					Solicitar información
+					<svg
+						class="btn-icon"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M5 12h14M12 5l7 7-7 7"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	/* Hero Section */
+	.hero {
+		min-height: calc(100vh - 80px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		overflow: hidden;
+		padding: 4rem 2rem;
+	}
+
+	.hero-background {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+
+	.hero-gradient {
+		position: absolute;
+		top: -50%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 150%;
+		height: 100%;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(230, 0, 0, 0.15) 0%,
+			transparent 60%
+		);
+		pointer-events: none;
+	}
+
+	.hero-grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+			linear-gradient(
+				90deg,
+				rgba(255, 255, 255, 0.03) 1px,
+				transparent 1px
+			);
+		background-size: 60px 60px;
+		mask-image: radial-gradient(
+			ellipse at center,
+			black 30%,
+			transparent 80%
+		);
+		-webkit-mask-image: radial-gradient(
+			ellipse at center,
+			black 30%,
+			transparent 80%
+		);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		max-width: 900px;
+	}
+
+	.hero-badge {
+		display: inline-block;
+		padding: 0.5rem 1.25rem;
+		background: rgba(230, 0, 0, 0.1);
+		border: 1px solid rgba(230, 0, 0, 0.3);
+		border-radius: 50px;
+		color: #ff4d4d;
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		margin-bottom: 2rem;
+		animation: fadeInUp 0.6s ease-out;
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		font-weight: 800;
+		line-height: 1.1;
+		margin-bottom: 1.5rem;
+		letter-spacing: -1px;
+		animation: fadeInUp 0.6s ease-out 0.1s backwards;
+	}
+
+	.highlight {
+		background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		color: rgba(255, 255, 255, 0.7);
+		max-width: 650px;
+		margin: 0 auto 2.5rem;
+		line-height: 1.7;
+		animation: fadeInUp 0.6s ease-out 0.2s backwards;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		animation: fadeInUp 0.6s ease-out 0.3s backwards;
+	}
+
+	/* Section Common Styles */
+	.section-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.section-label {
+		display: inline-block;
+		color: #e60000;
+		font-size: 0.85rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		margin-bottom: 0.75rem;
+	}
+
+	.section-title {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-weight: 700;
+		margin-bottom: 1rem;
+		letter-spacing: -0.5px;
+	}
+
+	.section-description {
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 1.1rem;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	/* Clients Section */
+	.clients-section {
+		padding: 5rem 0;
+		background: linear-gradient(
+			180deg,
+			rgba(230, 0, 0, 0.03) 0%,
+			transparent 100%
+		);
+	}
+
+	.clients-grid {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1.5rem;
+	}
+
+	.client-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 16px;
+		padding: 1.5rem;
+		text-align: center;
+		transition: all 0.3s ease;
+	}
+
+	.client-card:hover {
+		background: rgba(255, 255, 255, 0.05);
+		border-color: rgba(230, 0, 0, 0.2);
+		transform: translateY(-4px);
+	}
+
+	.client-logo {
+		width: 60px;
+		height: 60px;
+		margin: 0 auto 1rem;
+		background: linear-gradient(
+			135deg,
+			rgba(230, 0, 0, 0.15) 0%,
+			rgba(230, 0, 0, 0.05) 100%
+		);
+		border-radius: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.client-initial {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #e60000;
+	}
+
+	.client-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.client-name {
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+
+	.client-industry {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 0.8rem;
+	}
+
+	/* Reviews Section */
+	.reviews-section {
+		padding: 5rem 0;
+	}
+
+	.google-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 50px;
+		margin-bottom: 1rem;
+	}
+
+	.google-icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.google-badge span {
+		font-size: 0.85rem;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.rating-summary {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		margin-top: 0.5rem;
+	}
+
+	.stars {
+		display: flex;
+		gap: 0.15rem;
+	}
+
+	.star {
+		width: 22px;
+		height: 22px;
+		color: #fbbc05;
+	}
+
+	.rating-text {
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.9rem;
+	}
+
+	.reviews-carousel-wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.carousel-btn {
+		flex-shrink: 0;
+		width: 48px;
+		height: 48px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		color: #fff;
+	}
+
+	.carousel-btn:hover {
+		background: rgba(230, 0, 0, 0.2);
+		border-color: rgba(230, 0, 0, 0.4);
+	}
+
+	.carousel-btn svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	.reviews-carousel {
+		flex: 1;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.reviews-track {
+		display: flex;
+		gap: 1.5rem;
+		transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.review-card {
+		flex: 0 0 calc(33.333% - 1rem);
+		min-width: 300px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 20px;
+		padding: 2rem;
+		transition: all 0.3s ease;
+	}
+
+	.review-card:hover {
+		background: rgba(255, 255, 255, 0.04);
+		border-color: rgba(230, 0, 0, 0.2);
+	}
+
+	.review-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.reviewer-avatar {
+		width: 48px;
+		height: 48px;
+		background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 1.1rem;
+	}
+
+	.reviewer-info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.reviewer-name {
+		font-weight: 600;
+		font-size: 1rem;
+	}
+
+	.reviewer-badge {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 0.75rem;
+		background: rgba(255, 255, 255, 0.08);
+		padding: 0.2rem 0.5rem;
+		border-radius: 4px;
+		margin-top: 0.25rem;
+		display: inline-block;
+		width: fit-content;
+	}
+
+	.review-rating {
+		display: flex;
+		gap: 0.1rem;
+		margin-bottom: 1rem;
+	}
+
+	.star-small {
+		width: 16px;
+		height: 16px;
+		color: #fbbc05;
+	}
+
+	.review-text {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.95rem;
+		line-height: 1.7;
+		margin-bottom: 1rem;
+		font-style: italic;
+	}
+
+	.review-date {
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 0.8rem;
+	}
+
+	.reviews-cta {
+		text-align: center;
+		margin-top: 2.5rem;
+	}
+
+	/* CTA Section */
+	.cta-section {
+		padding: 5rem 0;
+	}
+
+	.cta-content {
+		text-align: center;
+		padding: 4rem;
+		background: linear-gradient(
+			135deg,
+			rgba(230, 0, 0, 0.1) 0%,
+			rgba(230, 0, 0, 0.02) 100%
+		);
+		border: 1px solid rgba(230, 0, 0, 0.2);
+		border-radius: 24px;
+	}
+
+	.cta-title {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+	}
+
+	.cta-description {
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 1.1rem;
+		margin-bottom: 2rem;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+		font-weight: 600;
+		border-radius: 12px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.btn-primary {
+		background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+		color: #ffffff;
+		box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(230, 0, 0, 0.4);
+	}
+
+	.btn-secondary {
+		background: rgba(255, 255, 255, 0.05);
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.3);
+	}
+
+	.btn-outline {
+		background: transparent;
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.btn-outline:hover {
+		background: rgba(255, 255, 255, 0.05);
+		border-color: rgba(255, 255, 255, 0.4);
+	}
+
+	.btn-icon {
+		width: 18px;
+		height: 18px;
+		transition: transform 0.3s ease;
+	}
+
+	.btn-primary:hover .btn-icon {
+		transform: translateX(4px);
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Responsive */
+	@media (max-width: 1200px) {
+		.clients-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.review-card {
+			flex: 0 0 calc(50% - 0.75rem);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.clients-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.review-card {
+			flex: 0 0 100%;
+		}
+
+		.carousel-btn {
+			display: none;
+		}
+
+		.reviews-carousel {
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+		}
+
+		.reviews-carousel::-webkit-scrollbar {
+			display: none;
+		}
+
+		.review-card {
+			scroll-snap-align: center;
+		}
+
+		.cta-content {
+			padding: 2.5rem 1.5rem;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero {
+			padding: 3rem 1.5rem;
+		}
+
+		.hero-description {
+			font-size: 1rem;
+		}
+
+		.btn {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.clients-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.container {
+			padding: 0 1.5rem;
+		}
+	}
+</style>
+
+<script>
+	// Carousel functionality
+	const track = document.querySelector(".reviews-track") as HTMLElement;
+	const prevBtn = document.querySelector(".carousel-btn-prev");
+	const nextBtn = document.querySelector(".carousel-btn-next");
+	const cards = document.querySelectorAll(".review-card");
+
+	let currentIndex = 0;
+	const cardWidth = 300 + 24; // card min-width + gap
+	const visibleCards = Math.floor(
+		(track?.parentElement?.offsetWidth || 900) / cardWidth,
+	);
+	const maxIndex = Math.max(0, cards.length - visibleCards);
+
+	function updateCarousel() {
+		if (track) {
+			track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+		}
+	}
+
+	prevBtn?.addEventListener("click", () => {
+		currentIndex = Math.max(0, currentIndex - 1);
+		updateCarousel();
+	});
+
+	nextBtn?.addEventListener("click", () => {
+		currentIndex = Math.min(maxIndex, currentIndex + 1);
+		updateCarousel();
+	});
+
+	// Auto-scroll every 5 seconds
+	setInterval(() => {
+		currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+		updateCarousel();
+	}, 5000);
+</script>

@@ -1,0 +1,730 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Business solutions
+const solutions = [
+    {
+        name: "Pyme Conecta",
+        subtitle: "Para pequeñas empresas",
+        price: "59,99",
+        features: [
+            "Fibra 600Mb simétrica",
+            "3 líneas móviles (30GB cada una)",
+            "Llamadas ilimitadas",
+            "Centralita básica",
+            "Soporte en horario laboral",
+        ],
+        popular: false,
+    },
+    {
+        name: "Business Plus",
+        subtitle: "Para empresas en crecimiento",
+        price: "99,99",
+        features: [
+            "Fibra 1Gb simétrica",
+            "5 líneas móviles ilimitadas",
+            "Centralita virtual completa",
+            "IP fija incluida",
+            "Soporte prioritario 24/7",
+            "Microsoft 365 Business Basic",
+        ],
+        popular: true,
+    },
+    {
+        name: "Enterprise Total",
+        subtitle: "Para grandes empresas",
+        price: "A medida",
+        features: [
+            "Fibra dedicada hasta 10Gb",
+            "Líneas móviles ilimitadas",
+            "Centralita avanzada + CRM",
+            "VPN corporativa",
+            "Gestor de cuenta dedicado",
+            "SLA garantizado 99.9%",
+        ],
+        popular: false,
+    },
+];
+
+// Additional services
+const services = [
+    {
+        name: "Centralita Virtual",
+        description:
+            "Sistema telefónico profesional en la nube con todas las funciones que necesita tu empresa.",
+        icon: "phone-call",
+    },
+    {
+        name: "Microsoft 365",
+        description:
+            "Suite completa de productividad: Outlook, Teams, Word, Excel y más para tu equipo.",
+        icon: "cloud",
+    },
+    {
+        name: "Seguridad Empresarial",
+        description:
+            "Protección avanzada contra amenazas, backup en la nube y recuperación de datos.",
+        icon: "shield",
+    },
+    {
+        name: "IoT Empresarial",
+        description:
+            "Conectividad M2M para dispositivos, sensores y maquinaria industrial.",
+        icon: "cpu",
+    },
+];
+---
+
+<Layout
+    title="Soluciones Empresas | Unfourtel - Distribuidor Vodafone"
+    description="Soluciones integrales de telecomunicaciones para empresas. Fibra, móvil, centralita virtual y servicios cloud."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/productos">Productos</a>
+                <span class="separator">/</span>
+                <span class="current">Soluciones Empresas</span>
+            </nav>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M3 21h18"></path>
+                        <path d="M5 21V7l8-4v18"></path>
+                        <path d="M19 21V11l-6-4"></path>
+                        <path d="M9 9h1"></path>
+                        <path d="M9 13h1"></path>
+                        <path d="M9 17h1"></path>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Soluciones Empresas</h1>
+                <p class="hero-description">
+                    Paquetes integrales diseñados para impulsar la productividad
+                    de tu negocio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Solutions -->
+    <section class="solutions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Paquetes para Empresas</h2>
+                <p class="section-description">
+                    Elige el plan que mejor se adapte al tamaño de tu empresa.
+                </p>
+            </div>
+            <div class="solutions-grid">
+                {
+                    solutions.map((solution) => (
+                        <div
+                            class={`solution-card ${solution.popular ? "popular" : ""}`}
+                        >
+                            {solution.popular && (
+                                <span class="solution-badge">Más Popular</span>
+                            )}
+                            <div class="solution-header">
+                                <span class="solution-subtitle">
+                                    {solution.subtitle}
+                                </span>
+                                <h3 class="solution-name">{solution.name}</h3>
+                            </div>
+                            <div class="solution-pricing">
+                                {solution.price === "A medida" ? (
+                                    <span class="solution-price custom">
+                                        {solution.price}
+                                    </span>
+                                ) : (
+                                    <>
+                                        <span class="solution-price">
+                                            {solution.price}
+                                        </span>
+                                        <span class="solution-period">
+                                            €/mes
+                                        </span>
+                                    </>
+                                )}
+                            </div>
+                            <ul class="solution-features">
+                                {solution.features.map((feature) => (
+                                    <li>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a
+                                href="/contacto"
+                                class={`solution-btn ${solution.popular ? "primary" : ""}`}
+                            >
+                                {solution.price === "A medida"
+                                    ? "Solicitar presupuesto"
+                                    : "Contratar"}
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Servicios Adicionales</h2>
+                <p class="section-description">
+                    Complementa tu paquete con servicios especializados.
+                </p>
+            </div>
+            <div class="services-grid">
+                {
+                    services.map((service) => (
+                        <div class="service-card">
+                            <div class="service-icon">
+                                {service.icon === "phone-call" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                        <path d="M14.05 2a9 9 0 0 1 8 7.94" />
+                                        <path d="M14.05 6A5 5 0 0 1 18 10" />
+                                    </svg>
+                                )}
+                                {service.icon === "cloud" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                                    </svg>
+                                )}
+                                {service.icon === "shield" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        <path d="M9 12l2 2 4-4" />
+                                    </svg>
+                                )}
+                                {service.icon === "cpu" && (
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <rect
+                                            x="4"
+                                            y="4"
+                                            width="16"
+                                            height="16"
+                                            rx="2"
+                                            ry="2"
+                                        />
+                                        <rect
+                                            x="9"
+                                            y="9"
+                                            width="6"
+                                            height="6"
+                                        />
+                                        <line x1="9" y1="1" x2="9" y2="4" />
+                                        <line x1="15" y1="1" x2="15" y2="4" />
+                                        <line x1="9" y1="20" x2="9" y2="23" />
+                                        <line x1="15" y1="20" x2="15" y2="23" />
+                                        <line x1="20" y1="9" x2="23" y2="9" />
+                                        <line x1="20" y1="14" x2="23" y2="14" />
+                                        <line x1="1" y1="9" x2="4" y2="9" />
+                                        <line x1="1" y1="14" x2="4" y2="14" />
+                                    </svg>
+                                )}
+                            </div>
+                            <h4 class="service-name">{service.name}</h4>
+                            <p class="service-description">
+                                {service.description}
+                            </p>
+                            <a href="/contacto" class="service-link">
+                                Más información
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Necesitas una solución a medida?</h2>
+                <p>
+                    Nuestros expertos en telecomunicaciones empresariales
+                    diseñarán un paquete personalizado para tu empresa.
+                </p>
+                <div class="cta-actions">
+                    <a href="/contacto" class="btn btn-primary"
+                        >Solicitar consultoría gratuita</a
+                    >
+                    <a href="tel:+34900000000" class="btn btn-secondary">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"
+                            ></path>
+                        </svg>
+                        Llamar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: #e60000;
+    }
+    .breadcrumb .separator {
+        color: rgba(255, 255, 255, 0.3);
+    }
+    .breadcrumb .current {
+        color: #fff;
+    }
+
+    .hero {
+        position: relative;
+        padding: 4rem 0;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(124, 58, 237, 0.15) 0%,
+            transparent 60%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.2) 0%,
+            rgba(124, 58, 237, 0.05) 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-icon svg {
+        width: 36px;
+        height: 36px;
+        color: #7c3aed;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Solutions Grid */
+    .solutions-section {
+        padding: 3rem 0 5rem;
+    }
+
+    .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .solution-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+    }
+
+    .solution-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .solution-card.popular {
+        border-color: rgba(124, 58, 237, 0.3);
+        background: linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.08) 0%,
+            transparent 100%
+        );
+    }
+
+    .solution-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.35rem 1rem;
+        background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .solution-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .solution-subtitle {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+    }
+
+    .solution-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 0.35rem;
+    }
+
+    .solution-pricing {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .solution-price {
+        font-size: 2.75rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .solution-price.custom {
+        font-size: 1.75rem;
+    }
+
+    .solution-period {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .solution-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+        flex: 1;
+    }
+
+    .solution-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.6rem 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .solution-features li:last-child {
+        border-bottom: none;
+    }
+
+    .solution-features svg {
+        width: 18px;
+        height: 18px;
+        color: #22c55e;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .solution-btn {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .solution-btn.primary {
+        background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+        border: none;
+        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    /* Services Grid */
+    .services-section {
+        padding: 4rem 0;
+        background: linear-gradient(
+            180deg,
+            rgba(124, 58, 237, 0.03) 0%,
+            transparent 100%
+        );
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-4px);
+    }
+
+    .service-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(124, 58, 237, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .service-icon svg {
+        width: 24px;
+        height: 24px;
+        color: #7c3aed;
+    }
+
+    .service-name {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #7c3aed;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .service-link svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    .service-link:hover svg {
+        transform: translateX(4px);
+    }
+
+    /* CTA */
+    .cta-section {
+        padding: 4rem 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        padding: 3rem;
+        background: linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.1) 0%,
+            rgba(124, 58, 237, 0.02) 100%
+        );
+        border: 1px solid rgba(124, 58, 237, 0.2);
+        border-radius: 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-content p {
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .solutions-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .solution-card.popular {
+            order: -1;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

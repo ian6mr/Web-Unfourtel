@@ -1,0 +1,782 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Devices categories
+const smartphones = [
+    {
+        name: "iPhone 15 Pro Max",
+        brand: "Apple",
+        price: "1.299",
+        monthlyPrice: "54,12",
+        image: null,
+        specs: ["256GB", "Titanio", "5G"],
+        badge: "Nuevo",
+    },
+    {
+        name: "Samsung Galaxy S24 Ultra",
+        brand: "Samsung",
+        price: "1.159",
+        monthlyPrice: "48,29",
+        image: null,
+        specs: ["256GB", "Titanio Negro", "5G"],
+        badge: null,
+    },
+    {
+        name: "Google Pixel 8 Pro",
+        brand: "Google",
+        price: "899",
+        monthlyPrice: "37,46",
+        image: null,
+        specs: ["128GB", "Obsidiana", "5G"],
+        badge: null,
+    },
+    {
+        name: "Xiaomi 14",
+        brand: "Xiaomi",
+        price: "699",
+        monthlyPrice: "29,12",
+        image: null,
+        specs: ["256GB", "Negro", "5G"],
+        badge: "Mejor Precio",
+    },
+    {
+        name: "iPhone 15",
+        brand: "Apple",
+        price: "959",
+        monthlyPrice: "39,96",
+        image: null,
+        specs: ["128GB", "Azul", "5G"],
+        badge: null,
+    },
+    {
+        name: "Samsung Galaxy A55",
+        brand: "Samsung",
+        price: "399",
+        monthlyPrice: "16,62",
+        image: null,
+        specs: ["128GB", "Azul", "5G"],
+        badge: "Gama Media",
+    },
+];
+
+const tablets = [
+    {
+        name: 'iPad Pro 12.9"',
+        brand: "Apple",
+        price: "1.449",
+        specs: ["256GB", "WiFi + Cellular", "M2"],
+    },
+    {
+        name: "Samsung Galaxy Tab S9+",
+        brand: "Samsung",
+        price: "899",
+        specs: ["256GB", "5G", "S Pen incluido"],
+    },
+];
+
+const accessories = [
+    { name: "AirPods Pro 2", brand: "Apple", price: "279" },
+    { name: "Galaxy Watch 6", brand: "Samsung", price: "319" },
+    { name: "Router WiFi 6E", brand: "Vodafone", price: "149" },
+    { name: "Mesh WiFi Kit", brand: "Vodafone", price: "199" },
+];
+---
+
+<Layout
+    title="Dispositivos | Unfourtel - Distribuidor Vodafone"
+    description="Smartphones, tablets, wearables y accesorios de las mejores marcas con financiación sin intereses."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/productos">Productos</a>
+                <span class="separator">/</span>
+                <span class="current">Dispositivos</span>
+            </nav>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"
+                        ></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Dispositivos</h1>
+                <p class="hero-description">
+                    Smartphones, tablets y accesorios de las mejores marcas con
+                    financiación sin intereses.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smartphones Section -->
+    <section class="devices-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Smartphones</h2>
+                <p class="section-description">
+                    Los últimos modelos con 5G y tecnología punta.
+                </p>
+            </div>
+            <div class="devices-grid">
+                {
+                    smartphones.map((device) => (
+                        <div class="device-card">
+                            {device.badge && (
+                                <span class="device-badge">{device.badge}</span>
+                            )}
+                            <div class="device-image">
+                                <div class="image-placeholder">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                    >
+                                        <rect
+                                            x="5"
+                                            y="2"
+                                            width="14"
+                                            height="20"
+                                            rx="2"
+                                            ry="2"
+                                        />
+                                        <line
+                                            x1="12"
+                                            y1="18"
+                                            x2="12.01"
+                                            y2="18"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="device-content">
+                                <span class="device-brand">{device.brand}</span>
+                                <h3 class="device-name">{device.name}</h3>
+                                <div class="device-specs">
+                                    {device.specs.map((spec) => (
+                                        <span class="spec">{spec}</span>
+                                    ))}
+                                </div>
+                                <div class="device-pricing">
+                                    <div class="price-cash">
+                                        <span class="price-label">Precio</span>
+                                        <span class="price-amount">
+                                            {device.price}€
+                                        </span>
+                                    </div>
+                                    <div class="price-monthly">
+                                        <span class="price-label">o desde</span>
+                                        <span class="price-amount">
+                                            {device.monthlyPrice}€
+                                            <small>/mes</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <a href="/contacto" class="device-btn">
+                                    Ver oferta
+                                </a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Tablets Section -->
+    <section class="tablets-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tablets</h2>
+                <p class="section-description">
+                    Conectividad móvil para trabajar desde cualquier lugar.
+                </p>
+            </div>
+            <div class="tablets-grid">
+                {
+                    tablets.map((tablet) => (
+                        <div class="tablet-card">
+                            <div class="tablet-image">
+                                <div class="image-placeholder tablet">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                    >
+                                        <rect
+                                            x="4"
+                                            y="2"
+                                            width="16"
+                                            height="20"
+                                            rx="2"
+                                            ry="2"
+                                        />
+                                        <line
+                                            x1="12"
+                                            y1="18"
+                                            x2="12.01"
+                                            y2="18"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="tablet-content">
+                                <span class="tablet-brand">{tablet.brand}</span>
+                                <h3 class="tablet-name">{tablet.name}</h3>
+                                <div class="tablet-specs">
+                                    {tablet.specs.map((spec) => (
+                                        <span class="spec">{spec}</span>
+                                    ))}
+                                </div>
+                                <div class="tablet-price">{tablet.price}€</div>
+                                <a href="/contacto" class="tablet-btn">
+                                    Ver oferta
+                                </a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section class="accessories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Accesorios</h2>
+                <p class="section-description">
+                    Complementos para sacar el máximo partido a tus
+                    dispositivos.
+                </p>
+            </div>
+            <div class="accessories-grid">
+                {
+                    accessories.map((accessory) => (
+                        <div class="accessory-card">
+                            <div class="accessory-icon">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                                    <line x1="16" y1="8" x2="2" y2="22" />
+                                    <line x1="17.5" y1="15" x2="9" y2="15" />
+                                </svg>
+                            </div>
+                            <div class="accessory-info">
+                                <span class="accessory-brand">
+                                    {accessory.brand}
+                                </span>
+                                <h4 class="accessory-name">{accessory.name}</h4>
+                            </div>
+                            <div class="accessory-price">
+                                {accessory.price}€
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Financiación sin intereses</h2>
+                <p>
+                    Llévate tu dispositivo favorito y págalo cómodamente en 24
+                    meses sin intereses.
+                </p>
+                <a href="/contacto" class="btn btn-primary"
+                    >Consultar financiación</a
+                >
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: #e60000;
+    }
+    .breadcrumb .separator {
+        color: rgba(255, 255, 255, 0.3);
+    }
+    .breadcrumb .current {
+        color: #fff;
+    }
+
+    .hero {
+        position: relative;
+        padding: 4rem 0;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(5, 150, 105, 0.15) 0%,
+            transparent 60%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(
+            135deg,
+            rgba(5, 150, 105, 0.2) 0%,
+            rgba(5, 150, 105, 0.05) 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-icon svg {
+        width: 36px;
+        height: 36px;
+        color: #059669;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Devices Section */
+    .devices-section {
+        padding: 3rem 0;
+    }
+
+    .devices-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .device-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .device-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(5, 150, 105, 0.2);
+    }
+
+    .device-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.3rem 0.75rem;
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .device-image {
+        margin-bottom: 1rem;
+    }
+
+    .image-placeholder {
+        aspect-ratio: 1;
+        background: linear-gradient(
+            135deg,
+            rgba(5, 150, 105, 0.1) 0%,
+            rgba(5, 150, 105, 0.02) 100%
+        );
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-placeholder svg {
+        width: 48px;
+        height: 48px;
+        color: rgba(5, 150, 105, 0.4);
+    }
+
+    .device-brand {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .device-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0.25rem 0 0.75rem;
+    }
+
+    .device-specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .spec {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 0.25rem 0.6rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50px;
+    }
+
+    .device-pricing {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .price-cash,
+    .price-monthly {
+        flex: 1;
+    }
+
+    .price-label {
+        display: block;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 0.25rem;
+    }
+
+    .price-amount {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .price-amount small {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .device-btn {
+        display: block;
+        text-align: center;
+        padding: 0.85rem;
+        background: rgba(5, 150, 105, 0.1);
+        border: 1px solid rgba(5, 150, 105, 0.2);
+        border-radius: 12px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .device-btn:hover {
+        background: rgba(5, 150, 105, 0.2);
+    }
+
+    /* Tablets Section */
+    .tablets-section {
+        padding: 4rem 0;
+        background: linear-gradient(
+            180deg,
+            rgba(5, 150, 105, 0.03) 0%,
+            transparent 100%
+        );
+    }
+
+    .tablets-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .tablet-card {
+        display: flex;
+        gap: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .tablet-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .tablet-image {
+        flex-shrink: 0;
+    }
+
+    .image-placeholder.tablet {
+        width: 150px;
+        height: 200px;
+    }
+
+    .tablet-content {
+        flex: 1;
+    }
+
+    .tablet-brand {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+
+    .tablet-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0.25rem 0 0.75rem;
+    }
+
+    .tablet-specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tablet-price {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #059669;
+        margin-bottom: 1rem;
+    }
+
+    .tablet-btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: rgba(5, 150, 105, 0.1);
+        border: 1px solid rgba(5, 150, 105, 0.2);
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    /* Accessories Section */
+    .accessories-section {
+        padding: 4rem 0;
+    }
+
+    .accessories-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    .accessory-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .accessory-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .accessory-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(5, 150, 105, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .accessory-icon svg {
+        width: 22px;
+        height: 22px;
+        color: #059669;
+    }
+
+    .accessory-info {
+        flex: 1;
+    }
+
+    .accessory-brand {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+    }
+
+    .accessory-name {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-top: 0.15rem;
+    }
+
+    .accessory-price {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #059669;
+    }
+
+    /* CTA */
+    .cta-section {
+        padding: 4rem 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        padding: 3rem;
+        background: linear-gradient(
+            135deg,
+            rgba(5, 150, 105, 0.1) 0%,
+            rgba(5, 150, 105, 0.02) 100%
+        );
+        border: 1px solid rgba(5, 150, 105, 0.2);
+        border-radius: 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-content p {
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        display: inline-flex;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .devices-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .tablets-grid {
+            grid-template-columns: 1fr;
+        }
+        .accessories-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .devices-grid,
+        .accessories-grid {
+            grid-template-columns: 1fr;
+        }
+        .tablet-card {
+            flex-direction: column;
+            text-align: center;
+        }
+        .image-placeholder.tablet {
+            margin: 0 auto;
+        }
+    }
+</style>

@@ -1,0 +1,764 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Fiber plans data
+const plans = [
+    {
+        name: "Fibra 300",
+        speed: "300Mb",
+        price: "29,99",
+        features: [
+            "300Mb simétricos",
+            "Router WiFi 5",
+            "Instalación gratuita",
+            "Sin permanencia",
+        ],
+        popular: false,
+    },
+    {
+        name: "Fibra 600",
+        speed: "600Mb",
+        price: "34,99",
+        features: [
+            "600Mb simétricos",
+            "Router WiFi 6",
+            "Instalación gratuita",
+            "Soporte prioritario",
+        ],
+        popular: true,
+    },
+    {
+        name: "Fibra 1Gb",
+        speed: "1Gb",
+        price: "44,99",
+        features: [
+            "1Gb simétrico",
+            "Router WiFi 6E",
+            "Instalación express",
+            "IP fija opcional",
+        ],
+        popular: false,
+    },
+    {
+        name: "Fibra 2.5Gb",
+        speed: "2.5Gb",
+        price: "59,99",
+        features: [
+            "2.5Gb simétricos",
+            "Router última gen",
+            "Mesh WiFi incluido",
+            "Soporte premium 24/7",
+        ],
+        popular: false,
+    },
+];
+
+// Bundles (Fibra + Móvil)
+const bundles = [
+    {
+        name: "Vodafone One Esencial",
+        fiber: "300Mb",
+        mobile: "25GB",
+        price: "44,99",
+        features: [
+            "Fibra 300Mb",
+            "1 línea móvil 25GB",
+            "Llamadas ilimitadas",
+            "Router WiFi 5",
+        ],
+    },
+    {
+        name: "Vodafone One Ilimitada",
+        fiber: "600Mb",
+        mobile: "Ilimitados",
+        price: "54,99",
+        features: [
+            "Fibra 600Mb",
+            "Datos móvil ilimitados",
+            "TV esencial incluida",
+            "Router WiFi 6",
+        ],
+        popular: true,
+    },
+    {
+        name: "Vodafone One Total",
+        fiber: "1Gb",
+        mobile: "Ilimitados x2",
+        price: "74,99",
+        features: [
+            "Fibra 1Gb",
+            "2 líneas ilimitadas",
+            "TV Total incluida",
+            "Todo el fútbol",
+        ],
+    },
+];
+---
+
+<Layout
+    title="Fibra Óptica | Unfourtel - Distribuidor Vodafone"
+    description="Fibra óptica ultrarrápida de Vodafone. Conexión simétrica de hasta 2.5Gb con la mejor tecnología WiFi."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/productos">Productos</a>
+                <span class="separator">/</span>
+                <span class="current">Fibra Óptica</span>
+            </nav>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Fibra Óptica</h1>
+                <p class="hero-description">
+                    Conexión ultrarrápida y estable para tu hogar o negocio con
+                    la mejor tecnología WiFi.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fiber Only Plans -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Solo Fibra</h2>
+                <p class="section-description">
+                    Conexión de alta velocidad para tu hogar.
+                </p>
+            </div>
+            <div class="plans-grid">
+                {
+                    plans.map((plan) => (
+                        <div
+                            class={`plan-card ${plan.popular ? "popular" : ""}`}
+                        >
+                            {plan.popular && (
+                                <span class="plan-badge">Recomendado</span>
+                            )}
+                            <div class="plan-header">
+                                <h3 class="plan-name">{plan.name}</h3>
+                                <div class="plan-speed">{plan.speed}</div>
+                            </div>
+                            <div class="plan-pricing">
+                                <span class="plan-price">{plan.price}</span>
+                                <span class="plan-period">€/mes</span>
+                            </div>
+                            <ul class="plan-features">
+                                {plan.features.map((feature) => (
+                                    <li>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a
+                                href="/contacto"
+                                class={`plan-btn ${plan.popular ? "primary" : ""}`}
+                            >
+                                Contratar
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundles Section -->
+    <section class="bundles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Fibra + Móvil</h2>
+                <p class="section-description">
+                    Los mejores paquetes con todo incluido.
+                </p>
+            </div>
+            <div class="bundles-grid">
+                {
+                    bundles.map((bundle) => (
+                        <div
+                            class={`bundle-card ${bundle.popular ? "popular" : ""}`}
+                        >
+                            {bundle.popular && (
+                                <span class="bundle-badge">Más Popular</span>
+                            )}
+                            <div class="bundle-header">
+                                <h3 class="bundle-name">{bundle.name}</h3>
+                                <div class="bundle-specs">
+                                    <span class="spec">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                                            <line
+                                                x1="12"
+                                                y1="20"
+                                                x2="12.01"
+                                                y2="20"
+                                            />
+                                        </svg>
+                                        {bundle.fiber}
+                                    </span>
+                                    <span class="spec-divider">+</span>
+                                    <span class="spec">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <rect
+                                                x="5"
+                                                y="2"
+                                                width="14"
+                                                height="20"
+                                                rx="2"
+                                            />
+                                            <line
+                                                x1="12"
+                                                y1="18"
+                                                x2="12.01"
+                                                y2="18"
+                                            />
+                                        </svg>
+                                        {bundle.mobile}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bundle-pricing">
+                                <span class="bundle-price">{bundle.price}</span>
+                                <span class="bundle-period">€/mes</span>
+                            </div>
+                            <ul class="bundle-features">
+                                {bundle.features.map((feature) => (
+                                    <li>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a
+                                href="/contacto"
+                                class={`bundle-btn ${bundle.popular ? "primary" : ""}`}
+                            >
+                                Contratar ahora
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿No encuentras lo que buscas?</h2>
+                <p>Creamos paquetes personalizados para tus necesidades.</p>
+                <a href="/contacto" class="btn btn-primary"
+                    >Solicitar presupuesto</a
+                >
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        color: #e60000;
+    }
+    .breadcrumb .separator {
+        color: rgba(255, 255, 255, 0.3);
+    }
+    .breadcrumb .current {
+        color: #fff;
+    }
+
+    .hero {
+        position: relative;
+        padding: 4rem 0;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(0, 160, 210, 0.15) 0%,
+            transparent 60%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 160, 210, 0.2) 0%,
+            rgba(0, 160, 210, 0.05) 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-icon svg {
+        width: 36px;
+        height: 36px;
+        color: #00a0d2;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Plans Grid */
+    .plans-section {
+        padding: 3rem 0;
+    }
+
+    .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    .plan-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .plan-card.popular {
+        border-color: rgba(0, 160, 210, 0.3);
+        background: linear-gradient(
+            135deg,
+            rgba(0, 160, 210, 0.08) 0%,
+            transparent 100%
+        );
+    }
+
+    .plan-badge {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.3rem 0.85rem;
+        background: linear-gradient(135deg, #00a0d2 0%, #0077a3 100%);
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    .plan-header {
+        text-align: center;
+        margin-bottom: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    .plan-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+    }
+
+    .plan-speed {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plan-pricing {
+        text-align: center;
+        margin-bottom: 1.25rem;
+    }
+
+    .plan-price {
+        font-size: 2.25rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #00a0d2 0%, #00c4ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .plan-period {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+    }
+
+    .plan-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem;
+        flex: 1;
+    }
+
+    .plan-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.5rem 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.85rem;
+    }
+
+    .plan-features svg {
+        width: 16px;
+        height: 16px;
+        color: #22c55e;
+        flex-shrink: 0;
+    }
+
+    .plan-btn {
+        display: block;
+        text-align: center;
+        padding: 0.85rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .plan-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .plan-btn.primary {
+        background: linear-gradient(135deg, #00a0d2 0%, #0077a3 100%);
+        border: none;
+    }
+
+    /* Bundles Section */
+    .bundles-section {
+        padding: 4rem 0;
+        background: linear-gradient(
+            180deg,
+            rgba(230, 0, 0, 0.03) 0%,
+            transparent 100%
+        );
+    }
+
+    .bundles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .bundle-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+    }
+
+    .bundle-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .bundle-card.popular {
+        border-color: rgba(230, 0, 0, 0.3);
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.08) 0%,
+            transparent 100%
+        );
+    }
+
+    .bundle-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.35rem 1rem;
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .bundle-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .bundle-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .bundle-specs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .spec {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 0.35rem 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50px;
+    }
+
+    .spec svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .spec-divider {
+        color: rgba(255, 255, 255, 0.3);
+        font-weight: 600;
+    }
+
+    .bundle-pricing {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .bundle-price {
+        font-size: 2.75rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .bundle-period {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .bundle-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+        flex: 1;
+    }
+
+    .bundle-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bundle-features li:last-child {
+        border-bottom: none;
+    }
+
+    .bundle-features svg {
+        width: 18px;
+        height: 18px;
+        color: #22c55e;
+        flex-shrink: 0;
+    }
+
+    .bundle-btn {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .bundle-btn.primary {
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        border: none;
+        box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+    }
+
+    /* CTA */
+    .cta-section {
+        padding: 4rem 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-content p {
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        display: inline-flex;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .plans-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .bundles-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .plans-grid,
+        .bundles-grid {
+            grid-template-columns: 1fr;
+        }
+        .plan-card.popular,
+        .bundle-card.popular {
+            order: -1;
+        }
+    }
+</style>

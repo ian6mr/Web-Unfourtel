@@ -1,0 +1,579 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Team members data - Replace with actual team info
+const teamMembers = [
+    {
+        name: "Carlos Rodríguez",
+        role: "Director General",
+        image: "/team/director.jpg",
+        description:
+            "Con más de 20 años de experiencia en el sector de las telecomunicaciones, Carlos lidera Unfourtel con una visión clara: ofrecer el mejor servicio personalizado a cada cliente. Su profundo conocimiento del mercado y su pasión por la innovación han sido clave para el crecimiento de la empresa.",
+        linkedin: "#",
+        email: "carlos@unfourtel.com",
+    },
+    {
+        name: "María González",
+        role: "Directora Comercial",
+        image: "/team/comercial.jpg",
+        description:
+            "María dirige el equipo comercial con una filosofía centrada en el cliente. Su capacidad para entender las necesidades de cada empresa y proponer soluciones a medida la convierten en una pieza fundamental del éxito de Unfourtel.",
+        linkedin: "#",
+        email: "maria@unfourtel.com",
+    },
+    {
+        name: "Antonio Fernández",
+        role: "Director Técnico",
+        image: "/team/tecnico.jpg",
+        description:
+            "Antonio es el responsable de garantizar la excelencia técnica en todas nuestras instalaciones y servicios. Su equipo asegura que cada cliente cuente con el soporte necesario las 24 horas del día, los 7 días de la semana.",
+        linkedin: "#",
+        email: "antonio@unfourtel.com",
+    },
+    {
+        name: "Laura Martín",
+        role: "Responsable de Atención al Cliente",
+        image: "/team/atencion.jpg",
+        description:
+            "Laura lidera nuestro equipo de atención al cliente, asegurando que cada consulta y cada problema se resuelva con rapidez y eficacia. Su compromiso con la satisfacción del cliente es el motor de su trabajo diario.",
+        linkedin: "#",
+        email: "laura@unfourtel.com",
+    },
+    {
+        name: "David López",
+        role: "Asesor Empresarial Senior",
+        image: "/team/asesor.jpg",
+        description:
+            "David es uno de nuestros asesores más experimentados, especializado en soluciones para medianas y grandes empresas. Su conocimiento profundo del portfolio de Vodafone le permite diseñar propuestas que optimizan costes y mejoran la conectividad.",
+        linkedin: "#",
+        email: "david@unfourtel.com",
+    },
+];
+---
+
+<Layout
+    title="Nuestro Equipo | Unfourtel - Distribuidor Vodafone"
+    description="Conoce al equipo de profesionales de Unfourtel. Expertos en telecomunicaciones comprometidos con ofrecerte el mejor servicio."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Nuestro Equipo</span>
+                <h1 class="hero-title">
+                    Profesionales
+                    <span class="highlight">comprometidos</span>
+                    contigo
+                </h1>
+                <p class="hero-description">
+                    Detrás de Unfourtel hay un equipo de expertos en
+                    telecomunicaciones que trabajan cada día para ofrecerte el
+                    mejor servicio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Introduction -->
+    <section class="team-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2 class="intro-title">
+                    Conoce a quienes hacen posible Unfourtel
+                </h2>
+                <p class="intro-text">
+                    Nuestro equipo está formado por profesionales con amplia
+                    experiencia en el sector de las telecomunicaciones. Cada
+                    miembro aporta su conocimiento y dedicación para garantizar
+                    que recibas la mejor atención y las soluciones más adaptadas
+                    a tus necesidades.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members -->
+    <section class="team-section">
+        <div class="container">
+            {
+                teamMembers.map((member, index) => (
+                    <article
+                        class={`team-member ${index % 2 !== 0 ? "reverse" : ""}`}
+                    >
+                        <div class="member-image">
+                            <div class="image-placeholder">
+                                <div class="image-decoration" />
+                                <div class="placeholder-content">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                    >
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                    <span>{member.name.split(" ")[0]}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-content">
+                            <span class="member-role">{member.role}</span>
+                            <h3 class="member-name">{member.name}</h3>
+                            <p class="member-description">
+                                {member.description}
+                            </p>
+                            <div class="member-contact">
+                                <a
+                                    href={`mailto:${member.email}`}
+                                    class="contact-link"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                        <polyline points="22,6 12,13 2,6" />
+                                    </svg>
+                                    <span>Contactar</span>
+                                </a>
+                                <a
+                                    href={member.linkedin}
+                                    class="contact-link linkedin"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                    >
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                        <rect
+                                            x="2"
+                                            y="9"
+                                            width="4"
+                                            height="12"
+                                        />
+                                        <circle cx="4" cy="4" r="2" />
+                                    </svg>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Join Team CTA -->
+    <section class="join-section">
+        <div class="container">
+            <div class="join-content">
+                <div class="join-text">
+                    <h2 class="join-title">
+                        ¿Quieres formar parte de nuestro equipo?
+                    </h2>
+                    <p class="join-description">
+                        Siempre estamos buscando talento apasionado por las
+                        telecomunicaciones y el servicio al cliente. Si crees
+                        que encajas con nosotros, ¡contáctanos!
+                    </p>
+                </div>
+                <a href="/contacto" class="btn btn-primary">
+                    Enviar candidatura
+                    <svg
+                        class="btn-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        padding: 6rem 0 4rem;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(230, 0, 0, 0.12) 0%,
+            transparent 60%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: rgba(230, 0, 0, 0.1);
+        border: 1px solid rgba(230, 0, 0, 0.3);
+        border-radius: 50px;
+        color: #ff4d4d;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1.25rem;
+        letter-spacing: -0.5px;
+    }
+
+    .highlight {
+        background: linear-gradient(135deg, #e60000 0%, #ff4d4d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    /* Team Introduction */
+    .team-intro {
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .intro-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .intro-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .intro-text {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    /* Team Section */
+    .team-section {
+        padding: 2rem 0 5rem;
+    }
+
+    .team-member {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+        align-items: center;
+        padding: 4rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .team-member:last-child {
+        border-bottom: none;
+    }
+
+    .team-member.reverse {
+        direction: rtl;
+    }
+
+    .team-member.reverse > * {
+        direction: ltr;
+    }
+
+    .member-image {
+        position: relative;
+    }
+
+    .image-placeholder {
+        position: relative;
+        aspect-ratio: 1;
+        max-width: 400px;
+        margin: 0 auto;
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.1) 0%,
+            rgba(230, 0, 0, 0.02) 100%
+        );
+        border: 1px solid rgba(230, 0, 0, 0.2);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .image-decoration {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(
+                circle at 30% 30%,
+                rgba(230, 0, 0, 0.15) 0%,
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 70% 70%,
+                rgba(230, 0, 0, 0.1) 0%,
+                transparent 50%
+            );
+    }
+
+    .placeholder-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .placeholder-content svg {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+        color: rgba(230, 0, 0, 0.4);
+    }
+
+    .placeholder-content span {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .member-content {
+        padding: 1rem 0;
+    }
+
+    .member-role {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: rgba(230, 0, 0, 0.1);
+        border: 1px solid rgba(230, 0, 0, 0.2);
+        border-radius: 50px;
+        color: #ff4d4d;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+    }
+
+    .member-name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        letter-spacing: -0.5px;
+    }
+
+    .member-description {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    .member-contact {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .contact-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-link:hover {
+        background: rgba(230, 0, 0, 0.1);
+        border-color: rgba(230, 0, 0, 0.3);
+        color: #fff;
+    }
+
+    .contact-link.linkedin:hover {
+        background: rgba(10, 102, 194, 0.2);
+        border-color: rgba(10, 102, 194, 0.4);
+    }
+
+    /* Join Section */
+    .join-section {
+        padding: 5rem 0;
+    }
+
+    .join-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+        padding: 3rem 4rem;
+        background: linear-gradient(
+            135deg,
+            rgba(230, 0, 0, 0.1) 0%,
+            rgba(230, 0, 0, 0.02) 100%
+        );
+        border: 1px solid rgba(230, 0, 0, 0.2);
+        border-radius: 24px;
+    }
+
+    .join-text {
+        flex: 1;
+    }
+
+    .join-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+    }
+
+    .join-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 20px rgba(230, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(230, 0, 0, 0.4);
+    }
+
+    .btn-icon {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover .btn-icon {
+        transform: translateX(4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .team-member {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .team-member.reverse {
+            direction: ltr;
+        }
+
+        .member-contact {
+            justify-content: center;
+        }
+
+        .image-placeholder {
+            max-width: 300px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 4rem 0 3rem;
+        }
+
+        .team-member {
+            padding: 3rem 0;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+        }
+
+        .join-content {
+            flex-direction: column;
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .container {
+            padding: 0 1.5rem;
+        }
+
+        .image-placeholder {
+            max-width: 250px;
+        }
+    }
+</style>

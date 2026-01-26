@@ -1,0 +1,27 @@
+{
+    "name": "Unfourtel - Distribuidor Vodafone",
+    "short_name": "Unfourtel",
+    "description": "Distribuidor autorizado de Vodafone. Soluciones de telecomunicaciones para empresas y particulares.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#e60000",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        }
+    ],
+    "lang": "es",
+    "orientation": "portrait-primary",
+    "categories": [
+        "business",
+        "telecommunications"
+    ]
+}
