@@ -3,6 +3,7 @@
 const currentYear = new Date().getFullYear();
 
 const navLinks = [
+    { name: "Inicio", href: "/" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Nuestro Equipo", href: "/equipo" },
     { name: "Productos", href: "/productos" },
@@ -166,7 +167,11 @@ const socialLinks = [
 <style>
     .footer {
         position: relative;
-        background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+        background: linear-gradient(
+            180deg,
+            var(--bg-secondary, #f8f9fc) 0%,
+            var(--bg-primary, #ffffff) 100%
+        );
         padding: 5rem 0 0;
         margin-top: auto;
         overflow: hidden;

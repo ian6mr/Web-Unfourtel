@@ -1,6 +1,7 @@
 ---
 // Navigation component for Vodafone distributor website
 const navItems = [
+    { name: "Inicio", href: "/" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Nuestro Equipo", href: "/equipo" },
     { name: "Productos", href: "/productos" },
@@ -54,6 +55,39 @@ const isActive = (href: string) => {
                 ))
             }
         </ul>
+
+        <!-- Dark Mode Toggle -->
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+        >
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+            <svg
+                class="sun-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                ></path>
+            </svg>
+            <svg
+                class="moon-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+            </svg>
+        </button>
     </div>
 </nav>
 
@@ -64,7 +98,7 @@ const isActive = (href: string) => {
         left: 0;
         right: 0;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
+        background: var(--bg-primary, rgba(255, 255, 255, 0.95));
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(230, 0, 0, 0.15);
@@ -257,6 +291,84 @@ const isActive = (href: string) => {
             transform: rotate(-45deg);
         }
     }
+
+    /* Theme Toggle */
+    .theme-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .toggle-track {
+        position: relative;
+        width: 48px;
+        height: 26px;
+        background: var(--color-gray-300, #c8c8d8);
+        border-radius: 13px;
+        transition: background 0.3s ease;
+    }
+
+    :global([data-theme="dark"]) .toggle-track {
+        background: var(--color-primary);
+    }
+
+    .toggle-thumb {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    :global([data-theme="dark"]) .toggle-thumb {
+        transform: translateX(22px);
+    }
+
+    .sun-icon,
+    .moon-icon {
+        width: 18px;
+        height: 18px;
+        color: var(--text-secondary, #5a5a7a);
+        transition:
+            opacity 0.3s ease,
+            color 0.3s ease;
+    }
+
+    .sun-icon {
+        opacity: 1;
+    }
+
+    .moon-icon {
+        opacity: 0;
+        position: absolute;
+        right: 0.5rem;
+    }
+
+    :global([data-theme="dark"]) .sun-icon {
+        opacity: 0;
+    }
+
+    :global([data-theme="dark"]) .moon-icon {
+        opacity: 1;
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 4rem;
+        }
+    }
 </style>
 
 <script>
@@ -275,5 +387,42 @@ const isActive = (href: string) => {
             navToggle?.setAttribute("aria-expanded", "false");
             navMenu?.classList.remove("active");
         });
+    });
+
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const html = document.documentElement;
+
+    // Cookie helper functions
+    function setCookie(name: string, value: string, days: number) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+    }
+
+    function getCookie(name: string): string | null {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === " ") c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0)
+                return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Initialize theme from cookie
+    const savedTheme = getCookie("theme");
+    if (savedTheme) {
+        html.setAttribute("data-theme", savedTheme);
+    }
+
+    // Toggle theme on click
+    themeToggle?.addEventListener("click", () => {
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", newTheme);
+        setCookie("theme", newTheme, 365);
     });
 </script>
