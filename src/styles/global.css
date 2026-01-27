@@ -1461,6 +1461,14 @@
     margin: 0;
 }
 
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3/1;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+}
+
 /* Responsive - Contacto */
 @media (max-width: 1024px) {
     .contact-grid {
@@ -1496,7 +1504,8 @@
         grid-template-columns: 1fr;
     }
 
-    .map-placeholder {
+    .map-placeholder,
+    .map-container iframe {
         aspect-ratio: 2/1;
     }
 }
