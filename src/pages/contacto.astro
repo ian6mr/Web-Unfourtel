@@ -79,7 +79,7 @@ const faqs = [
     <!-- Contact Info Cards -->
     <section class="contact-info-section">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid animate-on-scroll">
                 {
                     contactInfo.map((info) => (
                         <a
@@ -162,7 +162,7 @@ const faqs = [
     <section class="form-section">
         <div class="container">
             <div class="form-grid">
-                <div class="form-info">
+                <div class="form-info animate-on-scroll">
                     <span class="section-label">Formulario de Contacto</span>
                     <h2 class="section-title">Cuéntanos qué necesitas</h2>
                     <p class="section-description">
@@ -209,7 +209,9 @@ const faqs = [
                         </li>
                     </ul>
                 </div>
-                <div class="form-container">
+                <div
+                    class="form-container animate-on-scroll fade-right delay-2"
+                >
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
@@ -317,11 +319,11 @@ const faqs = [
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <span class="section-label">Preguntas Frecuentes</span>
                 <h2 class="section-title">¿Tienes dudas?</h2>
             </div>
-            <div class="faq-grid">
+            <div class="faq-grid animate-on-scroll delay-2">
                 {
                     faqs.map((faq) => (
                         <div class="faq-card">
@@ -337,7 +339,7 @@ const faqs = [
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
-            <div class="map-container">
+            <div class="map-container animate-on-scroll">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1113.1378149532013!2d-4.761160707929275!3d37.897029746766066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6cdfe0e4ee16a5%3A0x624b1ae1970478da!2sUnfourtel%20-%20Distribuidor%20Vodafone%20Empresas!5e0!3m2!1sen!2ses!4v1769526028361!5m2!1sen!2ses"
                     width="600"

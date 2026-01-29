@@ -259,13 +259,17 @@ const isActive = (href: string) => {
             width: 80%;
             max-width: 320px;
             height: 100vh;
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+            background: linear-gradient(
+                180deg,
+                var(--bg-primary) 0%,
+                var(--bg-secondary) 100%
+            );
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1rem;
             transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
         }
 
         .nav-menu.active {

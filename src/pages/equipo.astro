@@ -80,7 +80,7 @@ const teamMembers = [
     <!-- Team Introduction -->
     <section class="team-intro">
         <div class="container">
-            <div class="intro-content">
+            <div class="intro-content animate-on-scroll">
                 <h2 class="intro-title">
                     Conoce a quienes hacen posible Unfourtel
                 </h2>
@@ -101,7 +101,7 @@ const teamMembers = [
             {
                 teamMembers.map((member, index) => (
                     <article
-                        class={`team-member ${index % 2 !== 0 ? "reverse" : ""}`}
+                        class={`team-member animate-on-scroll ${index % 2 !== 0 ? "reverse" : ""}`}
                     >
                         <div class="member-image">
                             <div class="image-placeholder">
@@ -174,7 +174,7 @@ const teamMembers = [
     <!-- Join Team CTA -->
     <section class="join-section">
         <div class="container">
-            <div class="join-content">
+            <div class="join-content animate-on-scroll">
                 <div class="join-text">
                     <h2 class="join-title">
                         ¿Quieres formar parte de nuestro equipo?
