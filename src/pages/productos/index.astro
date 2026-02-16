@@ -4,90 +4,106 @@ import Layout from "../../layouts/Layout.astro";
 // Product categories
 const categories = [
     {
-        id: "movil",
-        name: "Tarifas Móvil",
+        id: "lineas",
+        name: "Líneas",
         description:
-            "Planes de datos y llamadas ilimitadas para particulares y empresas.",
+            "Tarifas móviles con SMS ilimitados y cobertura 5G incluida.",
         icon: "phone",
         color: "#e60000",
-        featured: true,
-        productCount: 6,
-    },
-    {
-        id: "fibra",
-        name: "Fibra Óptica",
-        description:
-            "Conexión ultrarrápida para tu hogar o negocio con la mejor cobertura.",
-        icon: "wifi",
-        color: "#00a0d2",
         featured: true,
         productCount: 4,
     },
     {
-        id: "empresas",
-        name: "Soluciones Empresas",
+        id: "centralitas",
+        name: "Centralitas",
         description:
-            "Paquetes integrales diseñados para las necesidades de tu negocio.",
+            "Soluciones profesionales de telefonía para empresas y negocios.",
         icon: "building",
         color: "#7c3aed",
         featured: true,
-        productCount: 5,
-    },
-    {
-        id: "dispositivos",
-        name: "Dispositivos",
-        description:
-            "Smartphones, tablets, routers y accesorios de las mejores marcas.",
-        icon: "device",
-        color: "#059669",
-        featured: false,
-        productCount: 12,
+        productCount: 2,
     },
 ];
 
-// Featured products across categories
-const featuredProducts = [
+// All products
+const allProducts = [
     {
-        name: "Vodafone One Ilimitada",
-        category: "Fibra + Móvil",
-        price: "49,99",
-        originalPrice: "64,99",
+        name: "TP Solo Voz",
+        category: "Líneas",
+        price: "10",
+        originalPrice: null,
         features: [
-            "Fibra 600Mb",
-            "Línea móvil ilimitada",
-            "TV incluida",
-            "Router WiFi 6",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 5G",
+            "Sin datos móviles",
         ],
-        badge: "Más Popular",
-        link: "/productos/fibra",
+        badge: null,
     },
     {
-        name: "Tarifa Infinita",
-        category: "Móvil",
-        price: "29,99",
+        name: "Tarifa 5GB",
+        category: "Líneas",
+        price: "12",
+        originalPrice: null,
+        features: [
+            "5 GB de datos",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 5G",
+        ],
+        badge: null,
+    },
+    {
+        name: "Tarifa 10Mbps",
+        category: "Líneas",
+        price: "15",
+        originalPrice: null,
+        features: [
+            "Datos ilimitados (10 Mbps)",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 5G",
+        ],
+        badge: "Más Popular",
+    },
+    {
+        name: "Tarifa Full Speed",
+        category: "Líneas",
+        price: "20",
         originalPrice: null,
         features: [
             "Datos ilimitados",
+            "Velocidad máxima",
             "Llamadas ilimitadas",
-            "5G incluido",
-            "Roaming UE",
+            "SMS ilimitados + 5G",
         ],
-        badge: "Mejor Valor",
-        link: "/productos/movil",
+        badge: "Premium",
     },
     {
-        name: "Business Total",
-        category: "Empresas",
-        price: "89,99",
-        originalPrice: "119,99",
+        name: "Solución Pro",
+        category: "Centralitas",
+        price: "40",
+        originalPrice: null,
         features: [
-            "10 líneas móviles",
-            "Fibra 1Gb simétrica",
-            "Centralita virtual",
-            "Soporte 24/7",
+            "Presentación fija",
+            "Cola de llamadas",
+            "Operadora automática",
+            "Locuciones personalizadas",
         ],
         badge: "Empresas",
-        link: "/productos/empresas",
+    },
+    {
+        name: "Red Inteligente",
+        category: "Centralitas",
+        price: "15",
+        originalPrice: null,
+        features: [
+            "Número avanzado",
+            "Todo lo de Solución Pro",
+            "Centralita deslimitada",
+            "Máxima flexibilidad",
+        ],
+        badge: "Mejor Valor",
     },
 ];
 ---
@@ -160,24 +176,6 @@ const featuredProducts = [
                                         />
                                     </svg>
                                 )}
-                                {category.icon === "wifi" && (
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                    >
-                                        <path d="M5 12.55a11 11 0 0 1 14.08 0" />
-                                        <path d="M1.42 9a16 16 0 0 1 21.16 0" />
-                                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
-                                        <line
-                                            x1="12"
-                                            y1="20"
-                                            x2="12.01"
-                                            y2="20"
-                                        />
-                                    </svg>
-                                )}
                                 {category.icon === "building" && (
                                     <svg
                                         viewBox="0 0 24 24"
@@ -191,37 +189,6 @@ const featuredProducts = [
                                         <path d="M9 9h1" />
                                         <path d="M9 13h1" />
                                         <path d="M9 17h1" />
-                                    </svg>
-                                )}
-                                {category.icon === "device" && (
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                    >
-                                        <rect
-                                            x="4"
-                                            y="4"
-                                            width="16"
-                                            height="16"
-                                            rx="2"
-                                            ry="2"
-                                        />
-                                        <rect
-                                            x="9"
-                                            y="9"
-                                            width="6"
-                                            height="6"
-                                        />
-                                        <line x1="9" y1="1" x2="9" y2="4" />
-                                        <line x1="15" y1="1" x2="15" y2="4" />
-                                        <line x1="9" y1="20" x2="9" y2="23" />
-                                        <line x1="15" y1="20" x2="15" y2="23" />
-                                        <line x1="20" y1="9" x2="23" y2="9" />
-                                        <line x1="20" y1="14" x2="23" y2="14" />
-                                        <line x1="1" y1="9" x2="4" y2="9" />
-                                        <line x1="1" y1="14" x2="4" y2="14" />
                                     </svg>
                                 )}
                             </div>
@@ -245,78 +212,6 @@ const featuredProducts = [
                                 </svg>
                             </div>
                         </a>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="featured-section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-label">Destacados</span>
-                <h2 class="section-title">Nuestros productos más populares</h2>
-                <p class="section-description">
-                    Las ofertas más demandadas por nuestros clientes.
-                </p>
-            </div>
-
-            <div class="products-grid animate-on-scroll delay-2">
-                {
-                    featuredProducts.map((product) => (
-                        <div class="product-card">
-                            {product.badge && (
-                                <span class="product-badge">
-                                    {product.badge}
-                                </span>
-                            )}
-                            <div class="product-header">
-                                <span class="product-category">
-                                    {product.category}
-                                </span>
-                                <h3 class="product-name">{product.name}</h3>
-                            </div>
-                            <div class="product-pricing">
-                                <span class="product-price">
-                                    <span class="price-amount">
-                                        {product.price}
-                                    </span>
-                                    <span class="price-period">€/mes</span>
-                                </span>
-                                {product.originalPrice && (
-                                    <span class="product-original-price">
-                                        {product.originalPrice}€
-                                    </span>
-                                )}
-                            </div>
-                            <ul class="product-features">
-                                {product.features.map((feature) => (
-                                    <li class="feature-item">
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <polyline points="20 6 9 17 4 12" />
-                                        </svg>
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <a href={product.link} class="product-btn">
-                                Ver detalles
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                >
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
                     ))
                 }
             </div>

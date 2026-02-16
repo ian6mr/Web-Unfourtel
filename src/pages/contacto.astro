@@ -5,30 +5,30 @@ const contactInfo = [
     {
         icon: "phone",
         title: "Teléfono",
-        value: "900 000 000",
+        value: "957 748 344",
         description: "Lunes a Viernes, 9:00 - 20:00",
-        link: "tel:+34900000000",
+        link: "tel:+34957748344",
     },
     {
         icon: "email",
         title: "Email",
-        value: "info@unfourtel.com",
+        value: "administracion@unfourtel.es",
         description: "Respuesta en menos de 24h",
-        link: "mailto:info@unfourtel.com",
+        link: "mailto:administracion@unfourtel.es",
     },
     {
         icon: "location",
         title: "Oficina",
-        value: "Calle Principal, 123",
-        description: "Madrid, España",
-        link: "https://maps.google.com",
+        value: "Avenida Carlos III Nº 21",
+        description: "14014 Córdoba, Córdoba",
+        link: "https://maps.google.com/?q=Avenida+Carlos+III+21+14014+Cordoba",
     },
     {
         icon: "whatsapp",
         title: "WhatsApp",
-        value: "+34 600 000 000",
+        value: "+34 957 748 344",
         description: "Chat directo con un asesor",
-        link: "https://wa.me/34600000000",
+        link: "https://wa.me/34957748344",
     },
 ];
 
@@ -42,8 +42,12 @@ const faqs = [
         answer: "Sí, gestionamos la portabilidad de tu número actual sin coste adicional ni interrupciones.",
     },
     {
-        question: "¿Hay permanencia en los contratos?",
-        answer: "Ofrecemos opciones sin permanencia. Consulta las condiciones específicas de cada tarifa.",
+        question: "¿Qué permanencia tiene el contrato de 24 meses?",
+        answer: "El contrato de 24 meses incluye condiciones especiales con precios reducidos a cambio de un compromiso de permanencia. Consulta las condiciones específicas de tu tarifa.",
+    },
+    {
+        question: "¿Qué permanencia tiene el contrato de 36 meses?",
+        answer: "El contrato de 36 meses ofrece las mejores condiciones y descuentos exclusivos. Ideal para empresas que buscan estabilidad a largo plazo.",
     },
     {
         question: "¿Qué cobertura tiene Vodafone en mi zona?",
@@ -261,16 +265,8 @@ const faqs = [
                             <select id="interest" name="interest">
                                 <option value="">Selecciona una opción</option>
                                 <option value="movil">Tarifas Móvil</option>
-                                <option value="fibra">Fibra Óptica</option>
-                                <option value="fibra-movil"
-                                    >Fibra + Móvil</option
-                                >
-                                <option value="empresas"
-                                    >Soluciones Empresas</option
-                                >
-                                <option value="dispositivos"
-                                    >Dispositivos</option
-                                >
+                                <option value="centralitas">Centralitas</option>
+                                <option value="soporte">Soporte Técnico</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
@@ -354,15 +350,28 @@ const faqs = [
 </Layout>
 
 <script>
-    // Simple form handling
+    // Form handling - sends email via mailto
     document
         .getElementById("contactForm")
         ?.addEventListener("submit", function (e) {
             e.preventDefault();
-            // Here you would typically send the form data to a server
-            alert(
-                "¡Gracias por contactarnos! Te responderemos en menos de 24 horas.",
+            const form = this as HTMLFormElement;
+            const formData = new FormData(form);
+
+            const name = formData.get("name") || "";
+            const company = formData.get("company") || "";
+            const email = formData.get("email") || "";
+            const phone = formData.get("phone") || "";
+            const interest = formData.get("interest") || "";
+            const message = formData.get("message") || "";
+
+            const subject = encodeURIComponent(
+                `Consulta web - ${interest || "General"} - ${name}`,
             );
-            (this as HTMLFormElement).reset();
+            const body = encodeURIComponent(
+                `Nombre: ${name}\nEmpresa: ${company}\nEmail: ${email}\nTeléfono: ${phone}\nInteresado en: ${interest}\n\nMensaje:\n${message}`,
+            );
+
+            window.location.href = `mailto:administracion@unfourtel.es?subject=${subject}&body=${body}`;
         });
 </script>

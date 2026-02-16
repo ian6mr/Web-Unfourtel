@@ -1,0 +1,227 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Líneas plans - all include SMS ilimitados + cobertura 5G
+const plans = [
+    {
+        name: "TP Solo Voz",
+        data: "Solo Voz",
+        price: "10",
+        features: [
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 5G",
+            "Sin datos móviles",
+        ],
+        popular: false,
+    },
+    {
+        name: "Tarifa 5GB",
+        data: "5GB",
+        price: "12",
+        features: [
+            "5 GB de datos",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 5G",
+        ],
+        popular: false,
+    },
+    {
+        name: "Tarifa 10Mbps",
+        data: "Ilimitados",
+        price: "15",
+        features: [
+            "Datos ilimitados (10 Mbps)",
+            "Llamadas ilimitadas",
+            "SMS ilimitados",
+            "Cobertura 5G",
+        ],
+        popular: true,
+    },
+    {
+        name: "Tarifa Full Speed",
+        data: "Ilimitados",
+        price: "20",
+        features: [
+            "Datos ilimitados",
+            "Velocidad máxima",
+            "Llamadas ilimitadas",
+            "SMS ilimitados + 5G",
+        ],
+        popular: false,
+    },
+];
+---
+
+<Layout
+    title="Líneas Móvil | Unfourtel - Distribuidor Vodafone"
+    description="Descubre nuestras tarifas de líneas móviles con SMS ilimitados, llamadas ilimitadas y cobertura 5G."
+>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/productos">Productos</a>
+                <span class="separator">/</span>
+                <span class="current">Líneas</span>
+            </nav>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"
+                        ></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Líneas Móvil</h1>
+                <p class="hero-description">
+                    Todas nuestras líneas incluyen SMS ilimitados y cobertura
+                    5G. Elige el plan que mejor se adapte a ti.
+                </p>
+                <div class="hero-actions">
+                    <a href="/productos" class="btn btn-outline">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            class="btn-icon"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            ><path d="M19 12H5M12 19l-7-7 7-7"></path></svg
+                        >
+                        Volver a Productos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Grid -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="plans-grid">
+                {
+                    plans.map((plan) => (
+                        <div
+                            class={`plan-card ${plan.popular ? "popular" : ""}`}
+                        >
+                            {plan.popular && (
+                                <span class="plan-badge">Más Popular</span>
+                            )}
+                            <div class="plan-header">
+                                <h3 class="plan-name">{plan.name}</h3>
+                                <div class="plan-data">{plan.data}</div>
+                            </div>
+                            <div class="plan-pricing">
+                                <span class="plan-price">{plan.price}</span>
+                                <span class="plan-period">€/mes</span>
+                            </div>
+                            <ul class="plan-features">
+                                {plan.features.map((feature) => (
+                                    <li>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a
+                                href="/contacto"
+                                class={`plan-btn ${plan.popular ? "primary" : ""}`}
+                            >
+                                Contratar ahora
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h4>SMS ilimitados</h4>
+                    <p>
+                        Todas las líneas incluyen SMS ilimitados sin coste
+                        adicional.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h4>Cobertura 5G</h4>
+                    <p>
+                        Navega con la red 5G de Vodafone, la más premiada de
+                        España.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h4>Activación inmediata</h4>
+                    <p>Tu línea activa en menos de 24 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Tienes dudas sobre qué tarifa elegir?</h2>
+                <p>
+                    Nuestros asesores te ayudarán a encontrar el plan perfecto.
+                </p>
+                <a href="/contacto" class="btn btn-primary">Contactar</a>
+            </div>
+        </div>
+    </section>
+</Layout>
